@@ -1,4 +1,3 @@
-// Card.js
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
@@ -20,25 +19,41 @@ const Card = ({ name, image }) => {
         <div className="title">
           <span>{name}</span>
         </div>
+        
         <div className="size">
-          <ul className="list-size">
-            {['Beginner', 'Intermediate', 'Elite', 'All'].map((level) => (
+          {/* First row: Beginner, Intermediate, Elite */}
+          <ul className="list-size first-row">
+            {['Beginner', 'Intermediate', 'Elite'].map((level) => (
               <li key={level} className="item-list">
                 <button
                   className={`item-list-button ${
                     selectedLevel === level.toLowerCase() ? 'active' : ''
                   }`}
-                  onClick={() => setSelectedLevel(level)}
+                  onClick={() => setSelectedLevel(level.toLowerCase())}
                 >
                   {level}
                 </button>
               </li>
             ))}
           </ul>
+
+          {/* Second row: All */}
+          <ul className="list-size second-row">
+            <li className="item-list full-width">
+              <button
+                className={`item-list-button ${
+                  selectedLevel === 'all' ? 'active' : ''
+                }`}
+                onClick={() => setSelectedLevel('all')}
+              >
+                All
+              </button>
+            </li>
+          </ul>
         </div>
+
         <div className="action">
           <button className="cart-button" onClick={handleGoClick}>
-
             <span>Go</span>
           </button>
         </div>
@@ -51,125 +66,169 @@ const StyledWrapper = styled.div`
   .card {
     --bg-card: #27272a;
     --primary: #6d28d9;
-    --primary-800: #4c1d95;
     --primary-shadow: #2e1065;
     --light: #d9d9d9;
     --zinc-800: #18181b;
     --bg-linear: linear-gradient(0deg, var(--primary) 50%, var(--light) 125%);
 
-    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 1rem;
-    width: 90%;
-    max-width: 40rem;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    width: 200px;
+    height: 300px;
     background-color: var(--bg-card);
     border-radius: 1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   }
 
   .image_container {
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 20rem;
+    height: 120px;
+    overflow: hidden;
     border-radius: 0.5rem;
   }
 
   .image_container .image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 100%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
   .title {
-    overflow: hidden;
-    width: 100%;
-    font-size: 3.5rem;
-    font-weight: 600;
+    font-size: 1.6rem;
+    font-weight: bold;
     color: var(--light);
     text-transform: capitalize;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    text-align: center;
   }
 
   .size {
-    width: 83%;
     font-size: 1rem;
     color: var(--light);
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
-  .list-size {
+  /* First row (3 buttons) */
+  .first-row {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    margin-left: 4.2rem;
-    width: 100rem;
-    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    margin-right:40px;
+    gap: 6px;
+    width: 100%;
   }
 
-  .list-size .item-list {
+  .first-row .item-list {
     list-style: none;
+    flex: 1;
+    max-width: 50%; /* Ensures 3 equal buttons */
+    display: flex;
+    justify-content:center;
   }
 
-  .list-size .item-list-button {
+  /* Second row (Only "All") */
+  .second-row {
+    display: flex;
+    justify-content: center;
+    margin-right:40px; 
+    width: 100%;
+  }
+
+  .second-row .item-list {
+    list-style: none;
+    flex: 1;
+    max-width: 100%;
+    display: flex;
+  justify-content: center; 
+  }
+
+  .item-list-button {
     cursor: pointer;
-    padding: 0.75rem 1.25rem;
-    background-color: var(--zinc-800);
-    font-size: 1.5rem;
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
     font-weight: bold;
+    background-color: var(--zinc-800);
     color: var(--light);
     border: 2px solid var(--zinc-800);
     border-radius: 0.5rem;
     transition: all 0.3s ease-in-out;
+    text-align: center;
   }
 
   .item-list-button:hover {
-    border: 2px solid var(--light);
+    border-color: var(--light);
   }
 
   .item-list-button:focus {
     background-color: var(--primary);
     border: 2px solid var(--primary-shadow);
-    box-shadow: inset 0px 1px 4px var(--primary-shadow);
   }
 
   .action {
     display: flex;
-    align-items: center;
-   
-    margin-left:28.5px;
-    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
   }
 
- .cart-button {
+  .cart-button {
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.75rem;
-    width: 100%; /* Decreased width for better fit */
-    // max-width: 10rem; /* Ensuring it doesn't get too large */
-    background-image: var(--bg-linear);
-    font-size: 1.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
     font-weight: bold;
+    background-image: var(--bg-linear);
     color: var(--light);
-    text-wrap: nowrap;
     border: 2px solid hsla(262, 83%, 58%, 0.5);
     border-radius: 0.5rem;
-    box-shadow: inset 0 0 0.25rem 1px var(--light);
+    transition: all 0.3s ease-in-out;
+   
+  }
+
+  .cart-button:hover {
+    background-color: var(--primary-shadow);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 600px) {
+    .card {
+      width: 90%;
+      height: auto;
+      padding: 1.2rem;
+    }
+
+    .image_container {
+      height: 100px;
+    }
+
+    .title {
+      font-size: 1.4rem;
+    }
+
+    .first-row,
+    .second-row {
+      gap: 4px;
+    }
+
+    .item-list-button {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.6rem;
+    }
+
+    .cart-button {
+      font-size: 0.9rem;
+    }
   }
 `;
 

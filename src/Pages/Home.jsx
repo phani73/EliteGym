@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "../Styles/Home.css";
 import Card from "../components/Card";
-import Button from "../components/Button";
-import Footer from "../components/Footer";
+import Button1 from "../components/Button1";
+import Footer1 from "../components/Footer1";
+import { useLocation } from "react-router-dom";
 
 // Import images properly
 import ChestImage from "../assets/images/chest1.jpg";
@@ -24,21 +25,26 @@ const exercises = [
 const Home = () => {
   return (
     <div className="home-container">
+      <h1>List Of Muscles </h1>
       <div className="button-container">
-        <Button />
+        <Button1 />
       </div>
 
-      <div className="exercise-list">
-        {exercises.map((exercise, index) => (
-          <Card key={index} name={exercise.name} image={exercise.image} />
-        ))}
+      {/* Wrapped the exercise list in a new div */}
+      <div className="exercise-wrapper">
+        <div className="exercise-list">
+          {exercises.map((exercise, index) => (
+            <Card key={index} name={exercise.name} image={exercise.image} />
+          ))}
+        </div>
       </div>
 
       <div className="footer">
-        <Footer />
+        <Footer1 />
       </div>
     </div>
   );
 };
+
 
 export default Home;
