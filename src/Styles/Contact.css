@@ -1,0 +1,111 @@
+/* Center the Contact Container */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh; /* Ensures it takes full viewport height */
+  width: 100%;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+/* Title Styling */
+.contact-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* Contact Cards */
+.card1 {
+  width: 90%;
+  max-width: 320px;
+  border-radius: 10px;
+  background-color: #666262;
+  color: black;
+  padding: 20px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Center the content */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    height: auto; /* Adjust height for small screens */
+    padding: 50px 40px;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+
+  .card1 {
+    max-width: 280px;
+  }
+}
+.outer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110vh;
+  width: 100vw;
+
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  padding: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-container {
+    width: 95%;
+    padding: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    width: 100%;
+    padding: 30px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .contact-container {
+    height: auto;
+    padding: 30px 15px;
+  }
+
+  .contact-title {
+    font-size: 1.5rem;
+  }
+
+  .card1 {
+    max-width: 260px;
+    font-size: 1rem;
+    padding: 14px;
+  }
+}

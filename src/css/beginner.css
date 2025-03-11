@@ -1,0 +1,147 @@
+/* Global styles for Beginner Component */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 50px; 
+  }
+
+  h1 {
+    font-size: 1.4rem; /* Optimized font size */
+    font-weight: bold;
+    text-align: center;
+    margin: 20px auto; /* Centers the element */
+    color: #cccccc; /* Light gray text */
+    text-transform: uppercase;
+    letter-spacing: 0.8px; /* Slightly increased for better clarity */
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.2); /* Soft glow effect */
+
+    /* Border & Background */
+    border: 2px solid #666666; /* Consistent gray border */
+    padding: 12px 25px; /* Proper spacing */
+    border-radius: 8px; /* Slightly rounded corners */
+    background-color: rgba(50, 50, 50, 0.6); /* Slightly darker for better contrast */
+    
+    /* Centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: 90%; /* Prevents overflow */
+    margin-left: auto;
+    margin-right: auto;
+}
+.diet-image-container {
+  width: 100%;
+  max-width: 90%; /* Responsive width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.diet-image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures image maintains aspect ratio */
+  border-radius: 10px;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .diet-image-container {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .diet-image-container {
+    max-width: 75%;
+    padding: 10px; /* Adjust spacing for small screens */
+  }
+}
+
+
+/* 📱 Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.3rem; /* Slightly smaller for tablets */
+        padding: 10px 20px;
+        
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem; /* Perfect size for smaller mobile screens */
+        padding: 8px 16px;
+        letter-spacing: 0.6px;
+        
+    }
+}
+
+
+
+  p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Exercise Card Styles */
+  .exercise-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .exercise-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .exercise-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffcc00;
+  }
+  
+  .video-container {
+    margin-top: 15px;
+  }
+  
+  video {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Button Styles */
+  .button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+    background: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .button:hover {
+    background: #e6b800;
+  }
+
+  
+  
