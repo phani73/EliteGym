@@ -54,26 +54,9 @@ const StyledWrapper = styled.div`
     max-width: 15rem;
   }
 
-  .Download-button::before,
-  .Download-button::after {
-    content: "";
-    width: 0.25rem;
-    height: 40%;
-    background-color: white;
-    position: absolute;
-  }
 
-  .Download-button::before {
-    left: 0;
-    border-top-left-radius: 0.3125rem;
-    border-bottom-left-radius: 0.3125rem;
-  }
+ 
 
-  .Download-button::after {
-    right: 0;
-    border-top-right-radius: 0.3125rem;
-    border-bottom-right-radius: 0.3125rem;
-  }
 `;
 
 export default Button;
