@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Payment from "./Pages/Payment";
@@ -8,6 +8,7 @@ import Contact from './Pages/Contact';
 import DesktopMessage from "./Pages/DesktopMessage";
 import ExercisePage from "./Pages/ExcercisePage";
 import LevelPage from "./Pages/LevelPage";
+import SplashScreen from "./Pages/SplashScreen"; 
 
 // Chest Pages
 import BeginnerChest from "./Pages/Exercises/Chest/Beginner";
@@ -46,8 +47,34 @@ import EliteAbs from "./Pages/Exercises/Abs/Elite";
 import AllAbs from "./Pages/Exercises/Abs/All";
 
 const App = () => {
-  const isMobile = window.innerWidth <= 768; 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [showSplash, setShowSplash] = useState(isMobile); // ❗ Show splash only if mobile
 
+  useEffect(() => {
+    const handleResize = () => {
+      const mobileView = window.innerWidth <= 768;
+      setIsMobile(mobileView);
+      if (!mobileView) setShowSplash(false); // ❗ Prevent splash on desktop
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      const timer = setTimeout(() => setShowSplash(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
+
+  if (!isMobile) {
+    return <DesktopMessage/>; // 🚫 Directly show message for desktop users
+  }
+
+  if (showSplash) {
+    return <SplashScreen/>;
+  }
   return (
     <Router>
       {isMobile ? (
