@@ -48,13 +48,14 @@ import AllAbs from "./Pages/Exercises/Abs/All";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [showSplash, setShowSplash] = useState(isMobile); // ❗ Show splash only if mobile
+  const [showSplash, setShowSplash] = useState(
+    isMobile && !sessionStorage.getItem("splashShown") // ❗ Only show if not seen before
+  );
 
   useEffect(() => {
     const handleResize = () => {
       const mobileView = window.innerWidth <= 768;
       setIsMobile(mobileView);
-      if (!mobileView) setShowSplash(false); // ❗ Prevent splash on desktop
     };
 
     window.addEventListener("resize", handleResize);
@@ -62,19 +63,23 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (isMobile) {
-      const timer = setTimeout(() => setShowSplash(false), 3000);
+    if (showSplash) {
+      const timer = setTimeout(() => {
+        setShowSplash(false);
+        sessionStorage.setItem("splashShown", "true"); // ✅ Store flag in sessionStorage
+      }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [isMobile]);
+  }, [showSplash]);
 
   if (!isMobile) {
-    return <DesktopMessage/>; // 🚫 Directly show message for desktop users
+    return <DesktopMessage />; // 🚫 Directly show message for desktop users
   }
 
   if (showSplash) {
-    return <SplashScreen/>;
+    return <SplashScreen />;
   }
+
   return (
     <Router>
       {isMobile ? (
