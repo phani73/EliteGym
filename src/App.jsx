@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Payment from "./Pages/Payment";
@@ -8,7 +8,8 @@ import Contact from './Pages/Contact';
 import DesktopMessage from "./Pages/DesktopMessage";
 import ExercisePage from "./Pages/ExcercisePage";
 import LevelPage from "./Pages/LevelPage";
-import SplashScreen from "./Pages/SplashScreen"; 
+import SplashScreen from "./Pages/SplashScreen";
+import ChatIcon from "./Pages/ChatIcon"; // ✅ Import ChatIcon
 
 // Chest Pages
 import BeginnerChest from "./Pages/Exercises/Chest/Beginner";
@@ -49,13 +50,12 @@ import AllAbs from "./Pages/Exercises/Abs/All";
 const App = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [showSplash, setShowSplash] = useState(
-    isMobile && !sessionStorage.getItem("splashShown") // ❗ Only show if not seen before
+    isMobile && !sessionStorage.getItem("splashShown")
   );
 
   useEffect(() => {
     const handleResize = () => {
-      const mobileView = window.innerWidth <= 768;
-      setIsMobile(mobileView);
+      setIsMobile(window.innerWidth <= 768);
     };
 
     window.addEventListener("resize", handleResize);
@@ -66,14 +66,14 @@ const App = () => {
     if (showSplash) {
       const timer = setTimeout(() => {
         setShowSplash(false);
-        sessionStorage.setItem("splashShown", "true"); // ✅ Store flag in sessionStorage
+        sessionStorage.setItem("splashShown", "true");
       }, 3000);
       return () => clearTimeout(timer);
     }
   }, [showSplash]);
 
   if (!isMobile) {
-    return <DesktopMessage />; // 🚫 Directly show message for desktop users
+    return <DesktopMessage />;
   }
 
   if (showSplash) {
@@ -82,7 +82,7 @@ const App = () => {
 
   return (
     <Router>
-      {isMobile ? (
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/diet" element={<Diet />} />
@@ -105,7 +105,7 @@ const App = () => {
           <Route path="/exercise/back/all" element={<AllBack />} />
 
           {/* Shoulder Routes */}
-          <Route path="/exercise/shoulders/beginner" element={<BeginnerShoulder/>}/>
+          <Route path="/exercise/shoulders/beginner" element={<BeginnerShoulder />} />
           <Route path="/exercise/shoulders/intermediate" element={<IntermediateShoulder />} />
           <Route path="/exercise/shoulders/elite" element={<EliteShoulder />} />
           <Route path="/exercise/shoulders/all" element={<AllShoulder />} />
@@ -117,19 +117,21 @@ const App = () => {
           <Route path="/exercise/arms/all" element={<AllArms />} />
 
           {/* Legs Routes */}
-          <Route path="/exercise/legs/beginner" element={<BeginnerLegs/>} />
+          <Route path="/exercise/legs/beginner" element={<BeginnerLegs />} />
           <Route path="/exercise/legs/intermediate" element={<IntermediateLegs />} />
           <Route path="/exercise/legs/elite" element={<EliteLegs />} />
           <Route path="/exercise/legs/all" element={<AllLegs />} />
 
-          <Route path="/exercise/abs/beginner" element={<BeginnerAbs/>} />
-          <Route path="/exercise/abs/intermediate" element={<IntermediateAbs/>} />
-          <Route path="/exercise/abs/elite" element={<EliteAbs/>} />
-          <Route path="/exercise/abs/all" element={<AllAbs/>} />
+          {/* Abs Routes */}
+          <Route path="/exercise/abs/beginner" element={<BeginnerAbs />} />
+          <Route path="/exercise/abs/intermediate" element={<IntermediateAbs />} />
+          <Route path="/exercise/abs/elite" element={<EliteAbs />} />
+          <Route path="/exercise/abs/all" element={<AllAbs />} />
         </Routes>
-      ) : (
-        <DesktopMessage /> // Show message if not on mobile
-      )}
+
+        {/* ✅ Always show ChatIcon on all pages */}
+        <ChatIcon />
+      </div>
     </Router>
   );
 };
