@@ -6,28 +6,51 @@ import ChestImage from "../../../assets/images/chest12.jpeg";
 import "../../../css/beginner.css";
 
 // Import videos with names
-import pushupsVideo from "../../../assets/chestVideos/pushups.mp4";
-import flatdumbellPressVideo from "../../../assets/chestVideos/flatdumbellPress.mp4";
-import flatbenchpressVideo from "../../../assets/chestVideos/flatbenchpress.mp4";
+
+import bc1 from "../../../assets/exercises/chest/beginner/chestpressmachine.mp4";
+import bc2  from "../../../assets/exercises/chest/beginner/chestpressmachine12.mp4";
+import bc3 from "../../../assets/exercises/chest/beginner/flatbenchpress.mp4";
+import bc4 from "../../../assets/exercises/chest/beginner/inclinepushups.mp4";
+import bc5 from "../../../assets/exercises/chest/beginner/pushuos.mp4";
+import bc6 from "../../../assets/exercises/chest/beginner/b1.mp4";
 
 // Define Exercise Data
 const beginnerExercises = [
   {
     name: "Push-Ups",
-    video: pushupsVideo, 
+    video: bc1, 
     targetMuscles:"chest muscles (pectoralis major), triceps, and the anterior deltoids (front of the shoulders)",
   },
+
+
   {
-    name: "Chest Press (Light Weight)",
-    video: flatdumbellPressVideo,
+    name: "Incline Dumbbell Press",
+    video: bc2,
+    targetMuscles: "Upper Chest, Front Shoulders, Triceps",
+
+  },
+  {
+    name: "Flat Bench Press",
+    video: bc3,
     targetMuscles: "Chest, Triceps, Shoulders",
   },
   {
-    name: "Incline Dumbbell Press",
-    video: flatbenchpressVideo,
+    name: "Incline Push-Ups",
+    video: bc4,
     targetMuscles: "Upper Chest, Front Shoulders, Triceps",
-
-  }
+  },
+  {
+    name: "Push-Ups with Feet Elevated",
+    video: bc5,
+    targetMuscles: "Chest, Triceps, Shoulders",
+  }, 
+  {
+    name: "Chest Press (Light Weight)",
+    video: bc6,
+    targetMuscles: "Chest, Triceps, Shoulders",
+  },
+ 
+ 
 ];
 
 const Beginner = () => {

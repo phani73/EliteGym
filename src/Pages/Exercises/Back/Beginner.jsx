@@ -5,29 +5,47 @@ import ExerciseCard from "../../../components/ExerciseCard";
 import BackImage from "../../../assets/images/back12.jpeg";
 import "../../../css/beginner.css";
 
-// Import videos with names
-// import pullupsVideo from "../../../assets/backVideos/pullups.mp4";
-// import bentOverRowVideo from "../../../assets/backVideos/bentOverRow.mp4";
-// import latPulldownVideo from "../../../assets/backVideos/latPulldown.mp4";
+import bb1 from "../../../assets/exercises/back/beginnerBack/chestbacklefts.mp4";
+import bb2  from "../../../assets/exercises/back/beginnerBack/latpulldownback.mp4";
+import bb3 from "../../../assets/exercises/back/beginnerBack/lowerback.mp4";
+import bb4 from "../../../assets/exercises/back/beginnerBack/seatedtraps.mp4";
+import bb5 from "../../../assets/exercises/back/beginnerBack/tbarrows.mp4";
+import bb6 from "../../../assets/exercises/back/beginnerBack/b1.mp4";
 
-// Define Exercise Data
-// const beginnerExercises = [
-//   {
-//     name: "Pull-Ups",
-//     video: pullupsVideo, 
-//     targetMuscles: "Lats, Biceps, Upper Back, Core",
-//   },
-//   {
-//     name: "Bent-Over Rows",
-//     video: bentOverRowVideo,
-//     targetMuscles: "Middle Back, Lats, Rear Delts, Biceps",
-//   },
-//   {
-//     name: "Lat Pulldown",
-//     video: latPulldownVideo,
-//     targetMuscles: "Lats, Upper Back, Biceps",
-//   }
-// ];
+
+const beginnerExercises = [
+  {
+    name: "Pull-Ups",
+    video: bb1, 
+    targetMuscles: "Lats, Biceps, Upper Back, Core",
+  },
+  {
+    name: "Bent-Over Rows",
+    video: bb2,
+    targetMuscles: "Middle Back, Lats, Rear Delts, Biceps",
+  },
+  {
+    name: "Lat Pulldown",
+    video: bb3,
+    targetMuscles: "Lats, Upper Back, Biceps",
+  },
+  {
+    name: "Seated Cable Rows",
+    video: bb4,
+    targetMuscles: "Middle Back, Lats, Rear Delts, Biceps",
+  },
+  {
+    name: "T-Bar Rows",
+    video: bb5,
+    targetMuscles: "Middle Back, Lats, Rear Delts, Biceps",
+  },
+  {
+    name: "Deadlifts",
+    video: bb6,
+    targetMuscles: "Lower Back, Hamstrings, Glutes, Core",
+  },
+
+];
 
 const Beginner = () => {
   return (
@@ -40,7 +58,7 @@ const Beginner = () => {
       </div>
      </div>
       <p>Here are some beginner exercises for back.</p>
-      {/* <ExerciseCard exercises={beginnerExercises} /> */}
+      <ExerciseCard exercises={beginnerExercises} />
       <div>
         <Footer1></Footer1>
       </div>
