@@ -64,7 +64,7 @@ const Intermediate = () => {
       </div>
      </div>
       <p>Here are some intermediate exercises for back.</p>
-      {/* <ExerciseCard exercises={beginnerExercises} /> */}
+      <ExerciseCard exercises={intermediateExercises} />
       <div>
         <Footer1></Footer1>
       </div>
