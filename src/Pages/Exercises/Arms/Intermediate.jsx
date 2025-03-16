@@ -21,10 +21,6 @@ import t13 from "../../../assets/exercises/arm/intermidiateTriceps/singlehandtri
 import t14 from "../../../assets/exercises/arm/intermidiateTriceps/skullcrushesdumbell.mp4";
 import t15 from "../../../assets/exercises/arm/intermidiateTriceps/skullcrushesincline.mp4";
 
-
-
-
-
 // // Define Exercise Data
 const intermediateArmExercises = [
   {
