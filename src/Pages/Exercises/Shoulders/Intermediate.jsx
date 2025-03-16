@@ -6,28 +6,47 @@ import ShouldersImage from "../../../assets/images/shoulder12.png";
 import "../../../css/beginner.css";
 
 // Import shoulder videos
-// import shoulderPressVideo from "../../../assets/shoulderVideos/shoulderPress.mp4";
-// import lateralRaisesVideo from "../../../assets/shoulderVideos/lateralRaises.mp4";
-// import frontRaisesVideo from "../../../assets/shoulderVideos/frontRaises.mp4";
+import si1 from "../../../assets/exercises/shoulders/intermediateShoulders/s11.mp4";
+import si2  from "../../../assets/exercises/shoulders/intermediateShoulders/s122.mp4";
+import si3 from "../../../assets/exercises/shoulders/intermediateShoulders/shoulderbarbelllifts.mp4";
+import si4  from "../../../assets/exercises/shoulders/intermediateShoulders/shoulderpulls.mp4";
+import si5 from "../../../assets/exercises/shoulders/intermediateShoulders/sitlaterlaraises.mp4";
+import si6 from "../../../assets/exercises/shoulders/intermediateShoulders/traps.mp4";
+
 
 // // Define Exercise Data
-// const beginnerShoulderExercises = [
-//   {
-//     name: "Shoulder Press",
-//     video: shoulderPressVideo, 
-//     targetMuscles: "Front Delts, Triceps, Upper Chest",
-//   },
-//   {
-//     name: "Lateral Raises",
-//     video: lateralRaisesVideo,
-//     targetMuscles: "Side Delts, Traps",
-//   },
-//   {
-//     name: "Front Raises",
-//     video: frontRaisesVideo,
-//     targetMuscles: "Front Delts, Upper Chest",
-//   }
-// ];
+const beginnerShoulderExercises = [
+  {
+    name: "Front Raises",
+    video: si1,
+    targetMuscles: "Shoulders",
+  },
+  {
+    name: "Shoulder Press",
+    video: si2,
+    targetMuscles: "Shoulders",
+  },
+  {
+    name: "Shoulder Press",
+    video: si3,
+    targetMuscles: "Shoulders",
+  },
+  {
+    name: "Lateral Raises",
+    video: si4,
+    targetMuscles: "Shoulders",
+  },
+  {
+    name: "Shoulder Press",
+    video: si5,
+    targetMuscles: "Shoulders",
+  },
+  {
+    name: "Shoulder Press",
+    video: si6,
+    targetMuscles: "Shoulders",
+  },
+];
 
 const Intermediate = () => {
   return (
@@ -40,7 +59,7 @@ const Intermediate = () => {
       </div>
      </div>
       <p>Here are some Intermediate exercises for shoulders.</p>
-      {/* <ExerciseCard exercises={beginnerShoulderExercises} /> */}
+      <ExerciseCard exercises={beginnerShoulderExercises} />
       <div>
         <Footer1 />
       </div>

@@ -6,28 +6,54 @@ import ShouldersImage from "../../../assets/images/shoulder12.png";
 import "../../../css/beginner.css";
 
 // Import shoulder videos
-// import shoulderPressVideo from "../../../assets/shoulderVideos/shoulderPress.mp4";
-// import lateralRaisesVideo from "../../../assets/shoulderVideos/lateralRaises.mp4";
-// import frontRaisesVideo from "../../../assets/shoulderVideos/frontRaises.mp4";
+import se1 from "../../../assets/exercises/shoulders/eliteShoulders/s122.mp4";
+import se2  from "../../../assets/exercises/shoulders/eliteShoulders/frontraises.mp4";
+import se3 from "../../../assets/exercises/shoulders/eliteShoulders/shoulderropes.mp4";
+import se4  from "../../../assets/exercises/shoulders/eliteShoulders/shouldervertical.mp4";
+import se5 from "../../../assets/exercises/shoulders/eliteShoulders/ss.mp4";
+import se6 from "../../../assets/exercises/shoulders/eliteShoulders/standingdumbellpress.mp4";
+import se7 from "../../../assets/exercises/shoulders/eliteShoulders/traps.mp4";
 
 // // Define Exercise Data
-// const beginnerShoulderExercises = [
-//   {
-//     name: "Shoulder Press",
-//     video: shoulderPressVideo, 
-//     targetMuscles: "Front Delts, Triceps, Upper Chest",
-//   },
-//   {
-//     name: "Lateral Raises",
-//     video: lateralRaisesVideo,
-//     targetMuscles: "Side Delts, Traps",
-//   },
-//   {
-//     name: "Front Raises",
-//     video: frontRaisesVideo,
-//     targetMuscles: "Front Delts, Upper Chest",
-//   }
-// ];
+const eliteShoulderExercises = [
+ {
+  name: "Front Raises",
+  video: se1,
+  targetMuscles: "Shoulders",
+
+ },
+ {
+  name: "Shoulder Press",
+  video: se2,
+  targetMuscles: "Shoulders",
+ },
+ {
+  name: "Shoulder Press",
+  video: se3,
+  targetMuscles: "Shoulders",
+ },
+ {
+  name: "Lateral Raises",
+  video: se4,
+  targetMuscles: "Shoulders",
+ },
+ {
+  name: "Shoulder Press",
+  video: se5,
+  targetMuscles: "Shoulders",
+ },
+ {
+  name: "Shoulder Press",
+  video: se6,
+  targetMuscles: "Shoulders",
+ },
+ {
+  name: "Shoulder Press",
+  video: se7,
+  targetMuscles: "Shoulders",
+ },
+ 
+];
 
 const All = () => {
   return (
@@ -40,7 +66,7 @@ const All = () => {
       </div>
      </div>
       <p>Here are some Elite exercises for shoulders.</p>
-      {/* <ExerciseCard exercises={beginnerShoulderExercises} /> */}
+      <ExerciseCard exercises={eliteShoulderExercises} />
       <div>
         <Footer1 />
       </div>
